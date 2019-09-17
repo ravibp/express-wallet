@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<title>Movies</title>
+<link rel="stylesheet" href="/stylesheets/newStyle.css">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<link rel="stylesheet" href="/stylesheets/businesscasual.css">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="/javascripts/constant_links.js"></script>
+<style>
+    #movies #form_1 {
+        background-color: rgba(255, 255, 255, 0.40);
+        float: left;
+        line-height: 33px;
+        width: 40%;
+        height: 50%;
+        margin-top: -3px;
+        margin-bottom: 40px;
+        margin-left: 60px;
+        margin-right: 5px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        text-align: center;
+        -webkit-box-shadow: 1px 9px 20px -1px rgba(100, 149, 237, 0.91);
+        -moz-box-shadow: 1px 9px 20px -1px rgba(100, 149, 237, 0.91);
+        box-shadow: 1px 9px 20px -1px rgba(100, 149, 237, 0.91);
+        -webkit-border-radius: 40px;
+        -moz-border-radius: 40px;
+        border-radius: 40px;
+        color: DarkBlue;
+    }
+
+    #movies #form_2 {
+        background-color: rgba(255, 255, 255, 0.40);
+        float: left;
+        line-height: 33px;
+        width: 40%;
+        height: 50%;
+        margin-top: -3px;
+        margin-bottom: 40px;
+        margin-left: 5px;
+        margin-right: auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        text-align: center;
+        -webkit-box-shadow: 1px 9px 20px -1px rgba(100, 149, 237, 0.91);
+        -moz-box-shadow: 1px 9px 20px -1px rgba(100, 149, 237, 0.91);
+        box-shadow: 1px 9px 20px -1px rgba(100, 149, 237, 0.91);
+        -webkit-border-radius: 40px;
+        -moz-border-radius: 40px;
+        border-radius: 40px;
+        color: DarkBlue;
+    }
+
+    #movies p {
+        text-align: center;
+        border-radius: 40px;
+    }
+
+    #movies p b {
+        color: DarkBlue;
+    }
+
+    footer {
+        clear: both;
+    }
+
+    input:active {
+        position: relative;
+        top: 3px;
+    }
+
+    input:hover {
+        background-color: SteelBlue;
+        cursor: pointer;
+    }
+</style>
+<script>
+    $(document).ready(function() {
+        $.ajax({
+            url: "http://localhost:1010/getMovieList",
+            method: 'get',
+            dataType: 'JSON',
+            success: function(data) {
+                console.log(data);
+                var movie_name, max_seats, counter = 1;
+                $.each(data, function() {
+                    $.each(this, function(name, value) {
+                        if (name == "Movie") {
+                            movie_name = value;
+                            console.log("Movie_name is : " + movie_name);
+                            $("#form_" + counter).append("<p><b>" + name + "</b> :  <select name='movie_name'> <option value='" + value + "'>" + value + "</option></select></p>");
+                        }
+                        if (name == "Theatre" || name == "Timings" || name == "Price" || name == "Plot")
+                            $("#form_" + counter).append("<p><b id='movieHeader'> " + name + " </b>" + ': ' + value + "</p>");
+                        if (name == "Max_seats") {
+                            $("#form_" + counter).append("<p ><b id='movieHeader'>" + name + "</b>" + ': ' + value + "</p>");
+                            max_seats = value;
+                            $("#form_" + counter).append("<p><b id='movieHeader'> Pick your seats</b> :  <select name='ticket_count'> <option value='1'>1</option> <option  value='2'>2</option> <option value='3'>3</option> <option value='4'>4</option> </select></p>");
+                        }
+                        if (name == "imgURL")
+                            $("#form_" + counter).append("<p><img src='" + value + "'></p>");
+                    });
+                    $("#form_" + counter).append("<input type='submit' value='Book Tickets' formaction='/bookMovie' class='btn btn-primary pull-left'></input>");
+                    counter++;
+                });
+            },
+            error: function(e1, e2, e3) {
+                console.log("Error is : " + JSON.stringify(e1) + ":" + e2 + " : " + e3);
+            }
+        });
+    });
+</script>
+<body>
+    <header class="header-site">
+        <p style="text-align:center;margin-top: 45px;"></p>
+        <div class="brand">Express Wallet</div>
+        <div class="address-bar">"Your Money,Our responsibility"</div>
+        <!-- Navigation-->
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display-->
+                <div class="navbar-header"><button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                    <a
+                        class="navbar-brand" href="#">Express Wallet</a>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling-->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-left">
+                        <li><img src="/images/Picture4.png" height="15%" width="45%" /></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <!--li.nav.navbar-nav.navbar-left//img(src='/images/Picture2_trans1.png', height='100%', width='21%')-->
+                        <li><a href="#">Hi <span id="name"></span><i class="fa fa-user-circle" aria-hidden="true"></i></a></li>
+                        <li><a href="/addMoney">Add Money <i class="fa fa-upload" aria-hidden="true"></i></a></li>
+                        <li><a href="/sendMoney">Send Money <i class="fa fa-paper-plane" aria-hidden="true"></i></a></li>
+                        <li><a href="/payElse">Pay ElseWhere <i class="fa fa-shopping-bag" aria-hidden="true"></i></a></li>
+                        <li><a href="/user/myTransactions">Your Transactions <i class="fa fa-calendar" aria-hidden="true"></i></a></li>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="/home">View Profile<i class="fa fa-user-circle" aria-hidden="true"></i></a></li>
+                            <li><a href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a></li>
+                        </ul>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h3 class="formHeading">You can chose from the following movies :</h3>
+            </div>
+        </div>
+        <div class="container text-center" style="margin-left:200px ; margin-top:40px;">
+            <div class="row">
+                <div class="col-lg-6 text-left">
+                    <form id="form_1"></form>
+                </div>
+                <div class="col-lg-6 text-left">
+                    <form id="form_2"></form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="contafooter footer-distributed">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="footer-left">
+                        <h3>Express Wallet <span>&copy; 2017</span></h3>
+                        <p class="footer-company-name">A Venture By : ETA | Express</p>
+                    </div>
+                    <div class="footer-center">
+                        <h3 class="footer-company-contact">Contact Us</h3>
+                        <div><i class="fa fa-phone"></i>
+                            <p>+91 9804567890</p>
+                        </div>
+                        <div><i class="fa fa-envelope"></i>
+                            <p><a>support@expresswallet.com</a></p>
+                        </div>
+                    </div>
+                    <div class="footer-right">
+                        <h3 class="footer-company-contact">About Us</h3>
+                        <p class="footer-company-about">We bring to you , your own secured , digital wallet. Add money, send Money to other wallet users and also pay for movies, gift vouchers and recharges.</p>
+                        <div class="footer-icons"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-linkedin"></i></a><a href="#"><i class="fa fa-github"></i></a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+
+</html>

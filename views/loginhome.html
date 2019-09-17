@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<title>User Home</title>
+<link rel="stylesheet" href="../stylesheets/newStyle.css">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<link rel="stylesheet" href="../stylesheets/businesscasual.css">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
+    rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic"
+    rel="stylesheet">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="/javascripts/constant_links.js"></script>
+<script>
+    window.onload = function () {
+        allCookies = document.cookie;
+        document.getElementById("name").innerHTML = allCookies
+        /* Add your logic here */
+    }
+
+
+</script>
+
+<body>
+
+    <header class="header-site">
+        <p style="text-align:center;margin-top: 45px;"></p>
+        <div class="brand">Express Wallet</div>
+        <div class="address-bar">"Your Money,Our responsibility"</div>
+        <!-- Navigation-->
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display-->
+                <div class="navbar-header">
+                    <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                        aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Express Wallet</a>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling-->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-left">
+                        <li>
+                            <img src="../images/Picture4.png" height="15%" width="45%">
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <!--li.nav.navbar-nav.navbar-left//img(src='/images/Picture2_trans1.png', height='100%', width='21%')-->
+                        <li>
+                            <a href="#">Hi
+                                <span id="name"></span>
+                                <i class="fa fa-user-circle" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/addMoney">Add Money
+                                <i class="fa fa-upload" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/sendMoney">Send Money
+                                <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/payElse">Pay ElseWhere
+                                <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/user/myTransactions">Your Transactions
+                                <i class="fa fa-calendar" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/home">View Profile
+                                <i class="fa fa-user-circle" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/logout">
+                                <i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a>
+                        </li>
+                    </ul>
+
+
+                </div>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="box">
+                <div class="col-lg-12 text-center">
+                    <div class="carousel slide" id="carousel-example-generic">
+                        <!-- Indicators-->
+                        <ol class="carousel-indicators hidden-xs">
+                            <li class="active" data-target="#carousel-example-generic" data-slide-to="0"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                        </ol>
+                        <!-- Wrapper for slides-->
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <img class="img-responsive img-full" src="../images/Car1.png" alt="">
+                            </div>
+                            <div class="item">
+                                <img class="img-responsive img-full" src="../images/Car2.png" alt="">
+                            </div>
+                            <div class="item">
+                                <img class="img-responsive img-full" src="../images/Car3.png" alt="">
+                            </div>
+                        </div>
+                        <!-- Controls-->
+                        <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                            <span class="icon-prev"></span>
+                        </a>
+                        <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                            <span class="icon-next"></span>
+                        </a>
+                    </div>
+                    <h2 class="brand-before">
+                        <small>Welcome to</small>
+                    </h2>
+                    <h1 class="brand-name">Express Wallet</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="box">
+                <div class="col-lg-12">
+                    <hr>
+                    <h2 class="intro-text text-center">
+                        <strong>A Wallet worth keeping</strong>
+                    </h2>
+                    <hr>
+                    <img class="img-responsive img-left" src="../images/Picture1.png" height="320" width="220" alt="">
+                    <hr class="visible-xs">
+                    <p>We welcome you with a balance of Rs.100.You can keep any amount of money in here. You can also "Go Cashless"
+                        and send money to any of the Wallet Users. If ever ,you fall short of money to send others , add
+                        in some to your wallet with our quick and easy methods.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="box">
+                <div class="col-lg-12">
+                    <hr>
+                    <h2 class="intro-text text-center">
+                        <strong>Where can you spend from here ? </strong>
+                    </h2>
+                    <hr>
+                    <img class="img-responsive img-left" src="../images/p1.jpg" height="320" width="220" alt="">
+                    <p>Use it anywhere you want. Do your mobile recharges ,or purchase movie tickets and gift vouchers. It is
+                        great for just about anything, the sky's the limit!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Script to Activate the Carousel-->
+    <footer class="footer-distributed">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="footer-left">
+                        <h3>Express Wallet
+                            <span>&copy 2017</span>
+                        </h3>
+                        <p class="footer-company-name">A Venture By :  ETA | Express</p>
+                    </div>
+                    <div class="footer-center">
+                        <h3 class="footer-company-contact">Contact Us</h3>
+                        <div>
+                            <i class="fa fa-phone"></i>
+                            <p>+91 9804567890</p>
+                        </div>
+                        <div>
+                            <i class="fa fa-envelope"></i>
+                            <p>
+                                <a>support@expresswallet.com</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="footer-right">
+                        <h3 class="footer-company-contact">About Us</h3>
+                        <p class="footer-company-about">We bring to you , your own secured , digital wallet. Add money, send Money to other wallet users
+                            and also pay for movies, gift vouchers and recharges.</p>
+                        <div class="footer-icons">
+                            <a href="#">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fa fa-linkedin"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fa fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- jQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <!-- Bootstrap Core JavaScript-->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <!-- Script to Activate the Carousel-->
+    <script>
+        $('.carousel').carousel({
+            interval: 5000
+        })
+    </script>
+</body>
+
+</html>

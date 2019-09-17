@@ -1,0 +1,21 @@
+{
+  "name": "routing",
+  "version": "1.0.0",
+  "description": "this is nodejs project",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon  app.js"
+  },
+  "author": "prasath",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  },
+  "dependencies": {
+    "cookies": "^0.7.3",
+    "excel4node": "^1.7.0",
+    "html-pdf": "^2.2.0",
+    "mongoose": "^5.4.15"
+  }
+}
